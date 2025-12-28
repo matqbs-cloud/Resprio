@@ -1,0 +1,25 @@
+{
+    "name": "Respiro - ćwiczenia oddechowe",
+    "short_name": "Respiro",
+    "description": "Aplikacja do ćwiczeń oddechowych",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#f4f8ff",
+    "theme_color": "#0a74d1",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

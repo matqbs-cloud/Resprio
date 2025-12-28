@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flow Breath</title>
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+
+<div class="topbar">
+  <h1>Respiro - ćwiczenia oddechowe</h1>
+</div>
+
+<div class="container">
+
+  <div id="view-home" class="view active">
+    <h2>Wybierz Ćwiczenie</h2>
+    <div id="exerciseList" class="cards"></div>
+  </div>
+
+  <div id="view-details" class="view">
+    <button id="backToList" class="ghost">Lista ćwiczeń</button>
+    <h2 id="details-title"></h2>
+    <p id="details-desc"></p>
+    <div class="params"></div>
+    <div class="controls">
+      <button id="toggleSoundBtn">Dźwięki WŁ.</button>
+      <button id="toggleWakelockBtn">Blokada ekranu WYŁ.</button>
+      <button id="startFromDetails">Start Sesji</button>
+    </div>
+  </div>
+
+  <div id="view-session" class="view">
+    <h2 id="session-title"></h2>
+    <div class="visual">
+      <div id="breathCircle" class="circle">
+        <p id="timeLeft" class="time-left">—</p>
+      </div>
+    </div>
+    <p id="phaseLabel" class="phase"></p>
+    <div class="controls">
+      <button id="resetSessionBtn">Reset</button>
+      <button id="backToHomeBtn">Lista ćwiczeń</button>
+      <button id="toggleFullscreenBtn" class="ghost">Pełny ekran</button>
+    </div>
+  </div>
+
+</div>
+
+<script type="module" src="src/app.js"></script>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('SW register success', reg.scope))
+                .catch(err => console.error('SW register failed', err));
+        });
+    }
+</script>
+</body>
+</html>
