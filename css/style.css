@@ -73,8 +73,12 @@ button.ghost {
 .controls { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
 
 .visual { display:flex; flex-direction:column; align-items:center; gap:12px; padding:18px 0; }
+
+/* --- ZMIENIONA SEKCJA KOŁA --- */
 .circle {
   width:180px; height:180px; border-radius:50%;
+  
+  /* Domyślne tło (dla stanu spoczynku) */
   background: radial-gradient(
     circle at 40% 30%, 
     rgba(10,116,209,.15), 
@@ -82,11 +86,40 @@ button.ghost {
   );
   
   display:flex; align-items:center; justify-content:center;
-  transition: transform 700ms cubic-bezier(.4,0,.2,1);
+  
+  /* ZMIANA: Transition 'all' dla płynnego przejścia kolorów i skali */
+  transition: all 1s ease-in-out;
+  border: 4px solid transparent; /* Rezerwacja miejsca na ramkę */
 }
-.phase { font-weight:600; color: var(--accent); }
 
+.phase { font-weight:600; color: var(--accent); }
 
 @media(max-width:420px){ 
   .circle { width:140px; height:140px; } 
+}
+
+/* --- NOWE KLASY STANÓW (DODANE) --- */
+
+/* Wdech: Duże, pełne niebieskie */
+.circle.inhale {
+  transform: scale(1.2);
+  background-color: var(--accent);
+  border-color: var(--accent);
+  background-image: none; /* Usuwamy gradient, żeby kolor był jednolity */
+}
+
+/* Wydech: Małe, puste w środku (tylko ramka) */
+.circle.exhale {
+  transform: scale(0.8);
+  background-color: transparent;
+  border-color: var(--accent);
+  background-image: none;
+}
+
+/* Zatrzymanie: Średnie, jasne tło */
+.circle.hold {
+  transform: scale(1.0);
+  background-color: #e0e7ff;
+  border-color: #e0e7ff;
+  background-image: none;
 }
